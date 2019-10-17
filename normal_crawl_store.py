@@ -26,6 +26,28 @@ subdirs = [subdirs[i] for i in range(2, len(subdirs), 2)]
 counter = 0
 
 for subdir in subdirs:
+    
+    counter += 1
+    print("\n", counter, "out of ", len(subdirs), ":\n")
+    print("Number of videos: ", len(videos))
+    
+    for files in os.walk(subdir):
+        
+        for curr_file in files[2]:
+            
+            if curr_file != "log.txt":
+                with open(subdir + "/" + curr_file) as file:
+                    data = file.readlines()
+                    
+                    for i in range(len(data)):
+                        if data[i].split("\t")[0] not in videos:
+                            videos[data[i].split("\t")[0]] = BNode()
+                            
+print(len(videos))
+
+counter = 0
+
+for subdir in subdirs:
     counter += 1
     print("\n", counter, "out of ", len(subdirs), ":\n")
     print("Number of nodes: ", len(g))
@@ -38,11 +60,6 @@ for subdir in subdirs:
             if curr_file != "log.txt":
                 with open(subdir + "/" + curr_file) as file:
                     data = file.readlines()
-                    
-                #For each row in the file, add the video to the dictionary
-                for i in range(len(data)):
-                    if data[i].split("\t")[0] not in videos:
-                        videos[data[i].split("\t")[0]] = BNode()
                 
                 
                 for i in range(len(data)):
