@@ -7,7 +7,7 @@ Created on Sun Oct 20 17:58:11 2019
 import os
 import re
 
-os.chdir('.\\Data\\NormalCrawl')
+os.chdir('C:\\Users\\Jdpre\\Desktop\\Big Data\\Project\\Data\\UpdateCrawl')
 
 lines_to_add = []
 for root, dirs, files in os.walk('.\\', topdown=True):

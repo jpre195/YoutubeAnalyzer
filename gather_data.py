@@ -11,7 +11,7 @@ import os
 import urllib.request
 from zipfile import ZipFile
 
-dest = 'C:\\Users\\Nathan\\Desktop\\Cpts415\\Data\\Users'
+dest = 'C:\\Users\\Jdpre\\Desktop\\Big Data\\Project\\Data\\Users'
 os.chdir(dest)
 
 html_page = requests.get('http://netsg.cs.sfu.ca/youtubedata/')
@@ -24,8 +24,11 @@ links = soup.find_all("a")
 2007 NormalCrawl: 4:39
 2008 NormalCrawl: 39:98
 UpdateCrawl 98:126
-
+FileSize & Bitrate: 126:129
+User Information: 129:131
 '''
+
+
 norm07 = links[129:131]
 norm07n = [i.attrs['href'] for i in norm07]
 
@@ -39,3 +42,7 @@ for link in norm07n:
         zipObj.close()
 #    print("\tDeleting: " + link)
     os.remove(link)
+    
+    
+    
+    
